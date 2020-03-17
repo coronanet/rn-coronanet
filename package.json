@@ -1,0 +1,51 @@
+{
+  "name": "CoronaNet",
+  "version": "0.0.1",
+  "private": true,
+  "config": {
+    "coronanet_archive": "https://github.com/coronanet/go-coronanet/releases/download/v0.0.1/coronanet.aar",
+    "coronanet_sha256": "6271325364a44672e219bd9fb3c57928dd1f4a9fb9dcec97f4580fec48f7ceab"
+  },
+  "scripts": {
+    "android-archive-check": "echo \"$npm_package_config_coronanet_sha256 android/app/libs/coronanet.aar\" | sha256sum --check",
+    "android-archive":       "yarn run android-archive-check || (curl -L $npm_package_config_coronanet_archive --output android/app/libs/coronanet.aar && yarn run android-archive-check)",
+    "android":               "yarn run android-archive && react-native run-android",
+
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint .",
+    "preinstall": "echo lofasz"
+  },
+  "dependencies": {
+    "@eva-design/eva": "^1.3.1",
+    "@react-native-community/masked-view": "^0.1.7",
+    "@react-navigation/bottom-tabs": "^5.1.1",
+    "@react-navigation/native": "^5.0.9",
+    "@react-navigation/stack": "^5.1.1",
+    "@ui-kitten/components": "^4.4.0-beta.1",
+    "@ui-kitten/eva-icons": "^4.4.1",
+    "moment": "^2.24.0",
+    "react": "16.9.0",
+    "react-native": "0.61.5",
+    "react-native-gesture-handler": "^1.6.0",
+    "react-native-qrcode-svg": "^6.0.3",
+    "react-native-reanimated": "^1.7.0",
+    "react-native-safe-area-context": "^0.7.3",
+    "react-native-screens": "^2.3.0",
+    "react-native-svg": "^12.0.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/runtime": "^7.7.7",
+    "@react-native-community/eslint-config": "^0.0.6",
+    "babel-jest": "^24.9.0",
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.57.0",
+    "react-test-renderer": "16.9.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
