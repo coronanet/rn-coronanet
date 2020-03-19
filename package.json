@@ -3,13 +3,14 @@
   "version": "0.0.1",
   "private": true,
   "config": {
-    "coronanet_archive": "https://github.com/coronanet/go-coronanet/releases/download/v0.0.1/coronanet.aar",
-    "coronanet_sha256": "6271325364a44672e219bd9fb3c57928dd1f4a9fb9dcec97f4580fec48f7ceab"
+    "coronanet_archive": "https://github.com/coronanet/go-coronanet/releases/download/v0.0.2/coronanet.aar",
+    "coronanet_sha256": "eab083c7aa453a5d1f8cc42c7e3f0c4abc1250f69b5db0c311eebb830a859a8c"
   },
   "scripts": {
     "android-archive-check": "echo \"$npm_package_config_coronanet_sha256 android/app/libs/coronanet.aar\" | sha256sum --check",
     "android-archive":       "yarn run android-archive-check || (curl -L $npm_package_config_coronanet_archive --create-dirs --output android/app/libs/coronanet.aar && yarn run android-archive-check)",
-    "android":               "yarn run android-archive && react-native run-android",
+    "android":               "yarn run android-archive && yarn run android-nosync",
+    "android-nosync":        "react-native run-android",
 
     "ios": "react-native run-ios",
     "start": "react-native start",

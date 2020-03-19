@@ -83,7 +83,7 @@ public class GhostBridge {
           public Response intercept(Chain chain) throws IOException {
             // If the request is not addressed the bridge, execute directly
             Request original = chain.request();
-            if (!original.url().host().equals("ghost-bridge")) {
+            if (!original.url().host().equals("corona-network")) {
               return chain.proceed(original);
             }
             // Request sent to the ghost-bridge, redirect to localhost

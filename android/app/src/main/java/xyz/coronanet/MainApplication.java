@@ -1,17 +1,19 @@
 package xyz.coronanet;
 
 import android.app.Application;
+import android.app.Notification;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
-
-import xyz.coronanet.Bridge;
-import io.ipsn.ghostbridge.GhostBridge;
 
 public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost =
@@ -47,12 +49,8 @@ public class MainApplication extends Application implements ReactApplication {
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
 
-    try {
-      Bridge bridge = new Bridge();
-      GhostBridge.init(bridge.port(), bridge.cert(), bridge.token());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    Intent intent = new Intent(this, GatewayService.class);
+    startForegroundService(intent);
   }
 
   /**
