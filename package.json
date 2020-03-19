@@ -8,7 +8,7 @@
   },
   "scripts": {
     "android-archive-check": "echo \"$npm_package_config_coronanet_sha256 android/app/libs/coronanet.aar\" | sha256sum --check",
-    "android-archive":       "yarn run android-archive-check || (curl -L $npm_package_config_coronanet_archive --output android/app/libs/coronanet.aar && yarn run android-archive-check)",
+    "android-archive":       "yarn run android-archive-check || (curl -L $npm_package_config_coronanet_archive --create-dirs --output android/app/libs/coronanet.aar && yarn run android-archive-check)",
     "android":               "yarn run android-archive && react-native run-android",
 
     "ios": "react-native run-ios",
