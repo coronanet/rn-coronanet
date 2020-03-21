@@ -11,7 +11,6 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
-import android.R;
 
 import xyz.coronanet.Bridge;
 import xyz.coronanet.GatewayStatus;
@@ -53,7 +52,7 @@ public class GatewayService extends Service {
 
     Notification.Builder notifier = new Notification.Builder(this, "CoronaNetworkServiceChannel");
     Notification notification = notifier
-      .setSmallIcon(R.drawable.sym_def_app_icon)
+      .setSmallIcon(R.mipmap.ic_notification)
       .setSound(null)
       .setContentIntent(notificationPendingIntent)
       .build();
