@@ -1,5 +1,5 @@
 import React from 'react';
-import { ApplicationProvider, useTheme, IconRegistry, Icon, Layout, Text, Input, Button, CheckBox, List, ListItem, Card, CardHeader, BottomNavigation, BottomNavigationTab } from '@ui-kitten/components';
+import { ApplicationProvider, IconRegistry } from '@ui-kitten/components';
 import { mapping, light as theme } from '@eva-design/eva';
 import { EvaIconsPack } from '@ui-kitten/eva-icons';
 
