@@ -12,8 +12,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.IBinder;
 
-import xyz.coronanet.Bridge;
-import xyz.coronanet.GatewayStatus;
+import xyz.coronanet.bridge.Bridge_;
+import xyz.coronanet.bridge.GatewayStatus;
 import io.ipsn.ghostbridge.GhostBridge;
 
 // GatewayService is the foreground Android service that acts as the gateway into
@@ -21,13 +21,13 @@ import io.ipsn.ghostbridge.GhostBridge;
 public class GatewayService extends Service {
   // bridge is the API server library implemented in Go that React Native can call
   // directly via HTTP.
-  private Bridge bridge;
+  private Bridge_ bridge;
 
   @Override
   public void onCreate() {
     // Create the corona network gateway, don't do anything with it
     try {
-      bridge = new Bridge(getFilesDir().getPath());
+      bridge = new Bridge_(getFilesDir().getPath());
     } catch (Exception e) {
       e.printStackTrace();
     }

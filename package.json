@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "config": {
-    "coronanet_archive": "https://github.com/coronanet/go-coronanet/releases/download/v0.0.2/coronanet.aar",
-    "coronanet_sha256": "eab083c7aa453a5d1f8cc42c7e3f0c4abc1250f69b5db0c311eebb830a859a8c"
+    "coronanet_archive": "https://github.com/coronanet/go-coronanet/releases/download/v0.0.3/coronanet.aar",
+    "coronanet_sha256": "8dd47bbfa386b294b5196258845016acbf8958ba90ccf2330a9bf84c91d33c97"
   },
   "scripts": {
     "android-archive-check": "echo \"$npm_package_config_coronanet_sha256 android/app/libs/coronanet.aar\" | sha256sum --check",
