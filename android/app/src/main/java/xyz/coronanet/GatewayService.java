@@ -39,8 +39,8 @@ public class GatewayService extends Service {
     NotificationManager manager = getSystemService(NotificationManager.class);
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
       NotificationChannel channel = new NotificationChannel(
-        "CoronaNetworkServiceChannel",
-        "Corona Network Service Channel",
+        "CoronaNetworkStatus",
+        "Corona Network Status",
         NotificationManager.IMPORTANCE_DEFAULT
       );
       channel.setSound(null, null);
@@ -50,7 +50,7 @@ public class GatewayService extends Service {
     Intent notificationIntent = new Intent(this, MainActivity.class);
     PendingIntent notificationPendingIntent = PendingIntent.getActivity(this, 0, notificationIntent, 0);
 
-    Notification.Builder notifier = new Notification.Builder(this, "CoronaNetworkServiceChannel");
+    Notification.Builder notifier = new Notification.Builder(this, "CoronaNetworkStatus");
     Notification notification = notifier
       .setSmallIcon(R.mipmap.ic_notification)
       .setSound(null)
