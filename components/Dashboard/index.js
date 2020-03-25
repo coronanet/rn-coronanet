@@ -8,7 +8,7 @@ const Header = createStackNavigator();
 
 export const DashboardScreen = () => {
     const theme = useTheme();
-  
+
     return (
       <Header.Navigator headerMode="screen" screenOptions={{
         headerTintColor: 'white', headerStyle: {backgroundColor: theme['color-warning-default']}

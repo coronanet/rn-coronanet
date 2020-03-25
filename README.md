@@ -17,11 +17,6 @@ Once Android is configured, you can build and run `rn-coronanet` via:
 ```
 $ yarn run android
 ```
-##### Or
-```
-$ yarn start
-$ yarn run android [on a new terminal]
-```
 
 *Note, you need to have `yarn start` running in another terminal. That will be the server sending live code changes to your emulator (or live device).*
 
