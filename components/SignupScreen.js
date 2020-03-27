@@ -4,7 +4,14 @@ import { Dimensions, View, Image, ScrollView } from 'react-native';
 
 export const SignupScreen = ({ navigation }) => {
   const navigateDash = () => {
-    navigation.navigate('Dashboard');
+    // TODO
+    // Create new user profile and navigate to dashboard
+    fetch('https://corona-network/profile', { method: 'POST' })
+      .then(resp => console.log(resp))
+      // .then(resp => {
+      //   console.log(resp);
+      //   navigation.navigate('Dashboard');
+      // })
   };
   const [checked, setChecked] = useState(false);
   const onCheckedChange = (isChecked) => {

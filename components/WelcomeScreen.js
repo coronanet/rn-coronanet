@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Layout, Text, Button } from '@ui-kitten/components';
 import { Dimensions, View, Image } from 'react-native';
 
@@ -6,6 +6,36 @@ export const WelcomeScreen = ({ navigation }) => {
   const navigateSignup = () => {
     navigation.navigate('Signup');
   };
+  const navigateDash = () => {
+    navigation.navigate('Dashboard');
+  };
+  useEffect(() => {
+    console.log("Fetching gateway");
+    // fetch('https://corona-network/gateway')
+    //   .then(resp => resp.json())
+    //   .then(resp => console.log(JSON.stringify(resp)))
+    // TODO
+    // Load user profile
+    // If exists use it to login
+    // Else create show register button
+    fetch('https://corona-network/profile', { method: 'GET' })
+      .then(resp => {
+        console.log(resp);
+        
+        if(resp.status == 200) {
+          // Profile fetching true
+          // Show login
+          // setProfile(resp)
+          resp.json()
+            .then(profileData => {
+              if(profile != profileData) {
+                // setProfile(profileData)
+              }
+            })
+        }
+      })
+  })
+  const [profile, setProfile] = useState(false);
 
   return (
     <Layout style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
@@ -30,7 +60,13 @@ export const WelcomeScreen = ({ navigation }) => {
         exclusively on your mobile device and shared directly, end-to-end encrypted,
         with your approved contacts. No cloud, no server, no tracking.</Text>
       </Text>
-      <Button key={"register"} onPress={navigateSignup}>Register new user</Button>
+      {!profile &&
+        <Button key={"register"} onPress={navigateSignup}>Register new user</Button>
+      }
+      {
+        profile &&
+        <Button key={"register"} onPress={navigateDash}>Login</Button>
+      }
     </Layout>
   )
 };
