@@ -23,10 +23,8 @@ import {
 } from "../hooks/hooks"
 
 const defaultContext = {
-    profile:{},
-    contacts:{},
-    networkStatus:{},
-    API
+    coronaNetworkState: null,
+    triggerRefresh: () => {}
 };
 
 const GhostBridgeContext = createContext(defaultContext);
