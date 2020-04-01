@@ -28,9 +28,7 @@ export const useDeleteProfile = () =>{
   return useFetch('https://corona-network/profile', "DELETE", null)
 }
 // Manage the local Corona Network Avatar
-export const useGetAvatar = () =>{
-  return useFetch('https://corona-network/profile/avatar', "GET", null)
-}
+
 export const useUpdateAvatar = (body={}) =>{
   return useFetch('https://corona-network/profile/avatar', "PUT", body)
 }
@@ -67,15 +65,6 @@ export const useGetProfileById = (id="") =>{
 export const useUpdateContactById = (id="", body={"name": "test"}) =>{
   return useFetch(`https://corona-network/contacts/${id}/profile`, "PUT", body)
 }
-export const useGetAvatarById = (id="") =>{
-  return useFetch(`https://corona-network/contacts/${id}/profile`, "GET", null)
-}
-
-//CDN API
-//Immutable objects infinitely cacheable
-export const useGetImageByHash = (sha3="") =>{
-  return useFetch(`https://corona-network//cdn/images/${sha3}`, "GET", null)
-}
 
 export const API = {
   useNetworkStatus,
@@ -85,7 +74,6 @@ export const API = {
   useGetProfile,
   useUpdateProfile,
   useDeleteProfile,
-  useGetAvatar,
   useUpdateAvatar,
   useDeleteAvatar,
   useStartPairing,
@@ -94,9 +82,7 @@ export const API = {
   useGetContacts,
   useDeleteContactById,
   useGetProfileById,
-  useUpdateContactById,
-  useGetAvatarById,
-  useGetImageByHash
+  useUpdateContactById
 }
 
 

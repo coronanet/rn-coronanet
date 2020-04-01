@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react'
+import { useState, useCallback } from 'react'
 
 
 export const useFetch = (url, method, data) => {
 
-  const [response, setResponse] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
+  const [response, setResponse] = useState(null);
+  const [status, setStatus] = useState(null);
+  const [loading, setLoading] = useState(null);
+  const [error, setError] = useState(null);
+  const [ok, setOk] = useState(null);
   
-  const makeRequest = async () => {
+  const makeRequest = useCallback (async () => {
 
-    setLoading(true)
-    setError(null)  
-    
+    setLoading(true);
+    setError(null);
+    setStatus(null);
     try {
+
       const _response = await fetch(url, {
         method: method, // GET POST PUT
-        headers: {
-          'Content-Type': 'application/json',
-        },
         body: data,
       });
-      const json = await _response.json();
-      setResponse(json);
-      
+      const res = await _response.text()
+      setResponse(res);
+      setStatus(_response.status);
+      setOk(_response.ok);
+            
     } catch (error) {
       setError(error)
-    } finally{
+    } finally {
       setLoading(false);
     }
 
-  }
+  },[]);
 
-  return { response, loading, error, makeRequest }
+  return { response, status, loading, error, ok, makeRequest }
 }
